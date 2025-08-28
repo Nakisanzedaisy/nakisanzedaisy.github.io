@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "start": "npm run preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --fix && stylelint '**/*.css' --ignore-path .gitignore",
+    "lint": "eslint src --fix && stylelint '**/*.css' --ignore-path .gitignore",
     "format": "prettier --write '**/*.{html,css,js,json,ts,tsx,md}'",
     "optimize-images": "imagemin images/**/*.{jpg,jpeg,png} --out-dir=images/optimized --plugin=mozjpeg --plugin=pngquant",
     "clean": "rm -rf dist .cache",
@@ -48,6 +48,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
