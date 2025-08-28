@@ -15,9 +15,14 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           mui: ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
         },
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.js')) {
+            return 'assets/js/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
       },
     },
   },
