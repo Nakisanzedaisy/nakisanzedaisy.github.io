@@ -1,26 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+/* Font imports - Distinctive typography */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
 
+/* Clash Display - Beautiful display font */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('https://cdn.jsdelivr.net/gh/nicro/fonts@main/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+/* Custom CSS Variables */
 :root {
+  /* Colors */
+  --color-coral: #FF6B4A;
+  --color-coral-light: #FF8A6A;
+  --color-coral-dark: #E55A3A;
+  --color-teal: #2DD4BF;
+  --color-teal-light: #5EEAD4;
+  --color-amber: #F59E0B;
+  --color-amber-light: #FBBF24;
+  
+  --bg-dark: #0F0F1A;
+  --bg-medium: #161625;
+  --bg-light: #1E1E32;
+  
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #FF6B4A 0%, #F59E0B 50%, #2DD4BF 100%);
+  --gradient-warm: linear-gradient(135deg, #FF6B4A 0%, #F59E0B 100%);
+  --gradient-cool: linear-gradient(135deg, #2DD4BF 0%, #3B82F6 100%);
+  --gradient-glow: radial-gradient(circle, rgba(255, 107, 74, 0.15) 0%, transparent 70%);
+  
+  /* Shadows */
+  --shadow-glow-coral: 0 0 40px rgba(255, 107, 74, 0.3);
+  --shadow-glow-teal: 0 0 40px rgba(45, 212, 191, 0.3);
+  --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Typography */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+/* Global Reset */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background: var(--bg-dark);
+}
+
+body {
+  font-family: 'Outfit', 'Sora', sans-serif;
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
 #root {
   margin: auto;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(255, 107, 74, 0.3);
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-coral), var(--color-amber));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-coral-light), var(--color-amber-light));
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 2px;
+}
+
+/* Link styles */
+a {
+  color: var(--color-coral);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-coral-light);
+}
+
+/* Animated gradient text utility */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(30, 30, 50, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effect utility */
+.glow-coral {
+  box-shadow: var(--shadow-glow-coral);
+}
+
+.glow-teal {
+  box-shadow: var(--shadow-glow-teal);
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 107, 74, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 107, 74, 0.6), 0 0 60px rgba(245, 158, 11, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Button click animation utility */
+@keyframes button-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
 }
