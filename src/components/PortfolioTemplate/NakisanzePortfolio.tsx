@@ -21,6 +21,7 @@ import {
   Code as CodeIcon,
   GitHub as GitHubIcon,
   LinkedIn as LinkedInIcon,
+  Download as DownloadIcon,
 } from '@mui/icons-material';
 import { styled, keyframes } from '@mui/material/styles';
 import { motion, useInView, useAnimation, AnimatePresence } from 'framer-motion';
@@ -495,78 +496,119 @@ const RippleButton: React.FC<RippleButtonProps> = ({ children, variant = 'primar
 // ===== MAIN COMPONENT =====
 const NakisanzePortfolio: React.FC = () => {
   const skills: Record<string, { items: string[]; color: ColorScheme }> = {
-    languages: { items: ['Java', 'Python', 'PHP', 'C#', 'JavaScript'], color: 'coral' },
-    frameworks: { items: ['Spring Boot', 'Laravel', 'Unity', 'RESTful APIs', 'Git'], color: 'teal' },
-    databases: { items: ['PostgreSQL', 'MySQL', 'Database Design'], color: 'amber' },
-    tools: { items: ['Postman', 'Git Version Control', 'WordPress'], color: 'coral' },
-    other: { items: ['Cybersecurity', 'Data Science & AI', 'System Architecture'], color: 'teal' },
+    languages: { items: ['Java', 'Python', 'PHP', 'C#', 'JavaScript', 'SQL'], color: 'coral' },
+    backend: { items: ['Spring Boot', 'Laravel', 'Node.js', 'REST APIs', 'Prisma'], color: 'teal' },
+    databases: { items: ['PostgreSQL', 'MySQL', 'Data Modeling', 'Power BI'], color: 'amber' },
+    'network & ops': { items: ['Linux/Unix', 'Monitoring', 'Incident Response', 'TCP/IP', 'DNS'], color: 'coral' },
+    tools: { items: ['Git', 'Postman', 'Genex Assistant', 'Wireshark', 'Nmap'], color: 'teal' },
+    'ai & analytics': { items: ['DistilBERT', 'TextBlob', 'Data Cleaning', 'Automation', 'Reporting'], color: 'amber' },
   };
 
   const projects = [
     {
+      title: 'Sentiment Analysis for Customer Conversations',
+      description: 'Built an AI/ML pipeline using DistilBERT plus rule-assisted labeling to classify customer sentiment and generate actionable service insights.',
+      image: '/images/wict.jpeg',
+      technologies: ['Python', 'DistilBERT', 'TextBlob', 'EDA', 'Analytics'],
+      period: 'April 2024 - August 2025',
+      type: 'Stanbic Women in Tech',
+      icon: <CodeIcon sx={{ color: colors.amber }} />,
+    },
+    {
+      title: 'Admin Authentication & Dashboard Platform',
+      description: 'Implemented secure role-based admin workflows with JWT-protected routes, API integration, and responsive interfaces for internal operations.',
+      image: '/images/3.png',
+      technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Prisma'],
+      period: 'April 2024 - August 2025',
+      type: 'React Internship Project',
+      icon: <CodeIcon sx={{ color: colors.coral }} />,
+    },
+    {
       title: 'EcoGuardians: Waste Warriors of Uganda',
-      description: 'Leading the development of a 3D mobile game in Unity aimed at teaching children sustainable waste practices through gamification. Implementing data persistence using binary serialization for offline gameplay.',
+      description: 'Developed a 3D Unity game promoting sustainable waste practices with offline support, scoring systems, and mission-based learning.',
       image: '/images/ECO.jpg',
       technologies: ['C#', 'Unity', 'Binary Serialization', 'Game Development', 'Mobile'],
-      period: 'August 2024 - Present',
+      period: 'June 2024 - Present',
       type: 'Final Year Project',
       icon: <CodeIcon sx={{ color: colors.teal }} />,
     },
     {
       title: 'YCI BeautyHub Backend System',
-      description: 'Developed and maintained comprehensive RESTful APIs using Spring Boot. Designed and implemented efficient database schemas in PostgreSQL. Collaborated extensively with frontend developers.',
+      description: 'Built and maintained Spring Boot APIs, PostgreSQL data models, and backend integration flows for a production web platform.',
       image: '/images/intern.jpg',
       technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'REST API', 'Testing'],
       period: 'June 2024 - January 2025',
       type: 'Internship',
       icon: <WorkIcon sx={{ color: colors.coral }} />,
     },
-    {
-      title: 'Tubayo Fund Platform',
-      description: 'Developed the backend infrastructure for a website promoting saving culture among African youth. Focused on secure financial data handling and scalable architecture.',
-      image: '/images/Women in ICT.jpeg',
-      technologies: ['Backend Development', 'Financial Systems', 'Data Security', 'Scalable Architecture'],
-      period: 'May 2023',
-      type: 'Development Project',
-      icon: <CodeIcon sx={{ color: colors.amber }} />,
-    },
-    {
-      title: 'Recess Development Projects',
-      description: 'Completed comprehensive software development projects using Python, Java, and PHP. Gained deep understanding of complex programming challenges.',
-      image: '/images/recess.jpg',
-      technologies: ['Python', 'Java', 'PHP', 'Full-Stack'],
-      period: 'June - August 2023',
-      type: 'Multi-Language Development',
-      icon: <CodeIcon sx={{ color: colors.teal }} />,
-    },
   ];
 
   const experience = [
     {
-      title: 'Spring Boot and PostgreSQL Backend Developer Intern',
+      title: 'Network Operations Center Engineer',
+      company: 'Savanna Fibre Internet',
+      period: 'November 2025 - February 2026',
+      icon: <WorkIcon sx={{ color: colors.coral, fontSize: 32 }} />,
+      responsibilities: [
+        'Monitored fiber and core infrastructure in 24/7 NOC operations.',
+        'Troubleshot routing and connectivity incidents across TCP/IP, DNS, and DHCP.',
+        'Tracked bandwidth and performance metrics to keep SLA targets.',
+        'Coordinated with cross-functional teams to sustain uptime and security standards.',
+      ],
+    },
+    {
+      title: 'RF Log Analyst / SSV Report Engineer',
+      company: 'Hammer Uganda (Lyca Mobile Uganda Project)',
+      period: 'June 2025 - September 2025',
+      icon: <WorkIcon sx={{ color: colors.amber, fontSize: 32 }} />,
+      responsibilities: [
+        'Analyzed 2G/4G drive test logs using Genex Assistant 10.',
+        'Prepared SSV reports and parameter consistency checks for network sites.',
+        'Identified poor coverage, overshooting sectors, handover failures, and call-drop risks.',
+      ],
+    },
+    {
+      title: 'React Developer Intern',
+      company: 'Shamos Tech Solutions',
+      period: 'April 2024 - August 2025',
+      icon: <CodeIcon sx={{ color: colors.teal, fontSize: 32 }} />,
+      responsibilities: [
+        'Built role-based admin authentication with React, Next.js, Node.js, PostgreSQL, and Prisma.',
+        'Implemented JWT-protected routes and CRUD workflows for admin users.',
+        'Delivered responsive UI with Tailwind CSS, shadcn/ui, and robust form validation.',
+      ],
+    },
+    {
+      title: 'Backend Developer Intern',
       company: 'YCI BeautyHub, YMCA Comprehensive Institute',
       period: 'June 2024 - January 2025',
       icon: <WorkIcon sx={{ color: colors.coral, fontSize: 32 }} />,
       responsibilities: [
-        'Developed and maintained RESTful APIs using Spring Boot framework',
-        'Designed and implemented comprehensive database schemas in PostgreSQL',
-        'Collaborated effectively with frontend developers to integrate backend services',
-        'Conducted thorough unit and integration testing to ensure high code quality',
-        'Participated in code reviews and implemented best practices for maintainable code',
-        'Worked in an Agile environment with cross-functional teams',
+        'Developed and maintained RESTful APIs using Spring Boot.',
+        'Designed and implemented PostgreSQL database schemas.',
+        'Integrated backend services with frontend teams and supported testing workflows.',
       ],
     },
     {
       title: 'Game Developer',
       company: 'Final Year Project, Makerere University',
-      period: 'August 2024 - Present',
+      period: 'June 2024 - Present',
       icon: <CodeIcon sx={{ color: colors.teal, fontSize: 32 }} />,
       responsibilities: [
-        'Leading development of 3D mobile game using Unity and C#',
-        'Implementing data persistence and offline gameplay functionality',
-        'Designing game progression logic including scoring and reward systems',
-        'Creating educational content aligned with sustainable development goals',
-        'Managing project timeline and deliverables for academic requirements',
+        'Developed a 3D Unity game promoting sustainable waste management.',
+        'Implemented binary-serialization persistence for offline gameplay.',
+        'Designed scoring, missions, and progression aligned with SDGs.',
+      ],
+    },
+    {
+      title: 'Server Administration Practice',
+      company: 'Airtel Africa Foundation',
+      period: 'August 2025 - Present',
+      icon: <WorkIcon sx={{ color: colors.amber, fontSize: 32 }} />,
+      responsibilities: [
+        'Supported remote Linux servers via SSH in a practical lab environment.',
+        'Configured SSH keys, cron jobs, logs, and firewall rules.',
+        'Practiced troubleshooting ports, connectivity, and secure file transfer.',
       ],
     },
     {
@@ -631,7 +673,7 @@ const NakisanzePortfolio: React.FC = () => {
                   color: colors.textSecondary,
                 }}
               >
-                Backend Developer • Software Engineer
+                Software Engineer • NOC Engineer
               </Typography>
               <Typography 
                 variant="h6" 
@@ -641,7 +683,7 @@ const NakisanzePortfolio: React.FC = () => {
                   fontWeight: 400,
                 }}
               >
-                BSc Software Engineering | Available for Immediate Employment
+                Backend Systems • Monitoring • AI/ML
               </Typography>
             </motion.div>
 
@@ -657,6 +699,9 @@ const NakisanzePortfolio: React.FC = () => {
                 </ContactChip>
                 <ContactChip whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <PhoneIcon /> +256 786 191 990
+                </ContactChip>
+                <ContactChip whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <PhoneIcon /> +256 747 480 337
                 </ContactChip>
                 <ContactChip whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <LocationIcon /> Kampala, Uganda
@@ -690,14 +735,12 @@ const NakisanzePortfolio: React.FC = () => {
             <SectionTitle variant="h2">About Me</SectionTitle>
             <Box sx={{ maxWidth: '800px', mx: 'auto', textAlign: 'center' }}>
               <Typography variant="body1" sx={{ mb: 3, fontSize: '1.15rem', lineHeight: 1.8 }}>
-                I'm a dedicated and versatile software developer with hands-on experience in both backend and game development.
-                I specialize in building powerful web applications using <Box component="span" sx={{ color: colors.coral, fontWeight: 600 }}>Laravel/PHP</Box> and creating immersive experiences with <Box component="span" sx={{ color: colors.teal, fontWeight: 600 }}>C# and Unity</Box>.
-                I also work with <Box component="span" sx={{ color: colors.amber, fontWeight: 600 }}>Spring Boot and PostgreSQL</Box> to develop robust backend systems that scale.
+                I am a detail-oriented Software Engineer and NOC Engineer with practical experience in backend development,
+                service monitoring, and incident response for high-availability systems.
               </Typography>
               <Typography variant="body1" sx={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
-                Whether it's crafting responsive user interfaces or building robust APIs, I focus on creating products that are both
-                functional and user-centric. I thrive in collaborative environments and love learning new tools and technologies.
-                I'm especially driven by projects that solve real problems and create positive impact in communities.
+                I build reliable platforms with <Box component="span" sx={{ color: colors.coral, fontWeight: 600 }}>Spring Boot</Box>, <Box component="span" sx={{ color: colors.teal, fontWeight: 600 }}>Laravel</Box>, and <Box component="span" sx={{ color: colors.amber, fontWeight: 600 }}>PostgreSQL</Box>,
+                and I apply AI/ML and analytics to improve customer experience and operational efficiency.
               </Typography>
             </Box>
           </AnimatedSection>
@@ -970,14 +1013,13 @@ const NakisanzePortfolio: React.FC = () => {
                           Makerere University
                         </Typography>
                         <Typography variant="body2" sx={{ color: colors.textMuted }}>
-                          2022 - 2026 (Graduating January 2026)
+                          2022 - 2026
                         </Typography>
                       </Box>
                     </Box>
                     <Divider sx={{ my: 3, borderColor: `${colors.textMuted}20` }} />
                     <Typography variant="body1" sx={{ color: colors.textSecondary, lineHeight: 1.7 }}>
-                      Comprehensive study of software development, algorithms design, system architecture, and data structures.
-                      Gaining practical experience through various projects and internships with focus on backend development and system design.
+                      Focused on software engineering fundamentals, backend architecture, databases, and practical industry projects.
                     </Typography>
                   </GlassCard>
                 </AnimatedCard>
@@ -1002,18 +1044,20 @@ const NakisanzePortfolio: React.FC = () => {
                           Professional Development & Training
                         </Typography>
                         <Typography variant="body2" sx={{ color: colors.textMuted }}>
-                          2023 - 2025
+                          2023 - 2026
                         </Typography>
                       </Box>
                     </Box>
                     <Divider sx={{ my: 3, borderColor: `${colors.textMuted}20` }} />
                     <List sx={{ p: 0 }}>
                       {[
-                        'UPG Sustainability Leadership Training - Certified UPG Sustainability Leader (2024)',
-                        'Cybersecurity Essentials Course - CyberSafe Foundation (2023-2024)',
-                        'Code Queen BootCamp - Web Development (HTML, CSS, JavaScript) (2023)',
-                        'Women in ICT Bootcamp - 3D Animation, Data Science & AI, Robotics (2025)',
-                        'Peer Training - Gender Mainstreaming Directorate, Makerere University',
+                        'Women in Tech Bootcamp, Stanbic Bank Uganda (2025 - 2026)',
+                        'Tech-for-Her Fellowship, Airtel Africa Foundation (2025)',
+                        'Women in ICT Bootcamp, National ICT Innovation Hub (2025)',
+                        'Cybersecurity Essentials, CyberSafe Foundation (2023 - 2024)',
+                        'Michigan Fellows Africa Initiative - Cohort 1 (2024 - 2025)',
+                        'UPG Sustainability Leadership Training - Certified Sustainability Leader (2024)',
+                        'Code Queen Bootcamp - Web Development (2023)',
                       ].map((cert, idx) => (
                         <motion.div
                           key={idx}
@@ -1047,6 +1091,29 @@ const NakisanzePortfolio: React.FC = () => {
                         </motion.div>
                       ))}
                     </List>
+                    <Box sx={{ mt: 3 }}>
+                      <motion.a
+                        href="/files/CERTIFICATES.docx.pdf"
+                        download="Nakisanze-Certificates.pdf"
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 8,
+                          padding: '10px 16px',
+                          borderRadius: 10,
+                          textDecoration: 'none',
+                          color: colors.textPrimary,
+                          background: `${colors.bgLight}`,
+                          border: `1px solid ${colors.teal}50`,
+                          fontWeight: 500,
+                        }}
+                      >
+                        <DownloadIcon sx={{ fontSize: 18 }} />
+                        Download Certificates PDF
+                      </motion.a>
+                    </Box>
                   </GlassCard>
                 </AnimatedCard>
               </Grid>
@@ -1197,7 +1264,7 @@ const NakisanzePortfolio: React.FC = () => {
                     WebkitTextFillColor: 'transparent',
                   }}
                 >
-                  Ready to Contribute to Your Team 🚀
+                  Open to Software Engineering & NOC Roles 🚀
                 </Typography>
               </motion.div>
 
@@ -1216,9 +1283,8 @@ const NakisanzePortfolio: React.FC = () => {
                     mx: 'auto',
                   }}
                 >
-                  I'm excited about opportunities to apply my backend development skills and contribute to innovative projects.
-                  With my Spring Boot, PostgreSQL, Laravel, and MySQL experience and passion for building scalable systems,
-                  I'm ready to make an immediate impact!
+                  I bring hands-on experience in backend engineering, network operations, and AI/ML project delivery.
+                  I am ready to support reliable, secure, and customer-focused digital platforms.
                 </Typography>
               </motion.div>
 
@@ -1296,7 +1362,7 @@ const NakisanzePortfolio: React.FC = () => {
                 transition={{ duration: 1, delay: 0.8 }}
               >
                 <Typography variant="body2" sx={{ mt: 8, color: colors.textMuted }}>
-                  © 2024 Nakisanze Deziranta. Crafted with React, TypeScript & Material-UI.
+                  © 2026 Nakisanze Deziranta. Crafted with React, TypeScript & Material-UI.
                 </Typography>
               </motion.div>
             </Box>
